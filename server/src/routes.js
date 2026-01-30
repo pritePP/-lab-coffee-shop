@@ -1,9 +1,18 @@
-const MenuController = require('./controllers/MenuController')
+const CoffeeController = require('./controllers/CoffeeController')
 
 module.exports = (app) => {
-    app.get('/menus', MenuController.index)
-    app.get('/menu/:id', MenuController.show)
-    app.post('/menu', MenuController.create)
-    app.put('/menu/:id', MenuController.update)
-    app.delete('/menu/:id', MenuController.delete)
+    // Get all coffees
+    app.get('/coffees', CoffeeController.index)
+    
+    // Create coffee
+    app.post('/coffee', CoffeeController.create)
+    
+    // Edit coffee
+    app.put('/coffee/:coffeeId', CoffeeController.put)
+    
+    // Delete coffee
+    app.delete('/coffee/:coffeeId', CoffeeController.delete)
+    
+    // Show coffee by id
+    app.get('/coffee/:coffeeId', CoffeeController.show)
 }
