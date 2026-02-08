@@ -66,7 +66,7 @@ export default {
 
 /* Active route (ปุ่มที่เลือก) */
 .nv-navbar .nav li a.router-link-active {
-  background-color: #ededea;     /* latte */
+  background-color: #fea847;     /* latte */
   color: #000000;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
