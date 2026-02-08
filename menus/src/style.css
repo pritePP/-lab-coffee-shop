@@ -1,0 +1,253 @@
+/* ======================================================
+   CLEAN MINIMAL UI – ACADEMIC FRIENDLY
+   ====================================================== */
+
+:root {
+  /* ===== Fonts ===== */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* ===== Neutral + Coffee Accent ===== */
+  --bg: #f4f5f7;              /* พื้นหลังเรียบ */
+  --surface: #ffffff;         /* card */
+  --text: #111827;            /* ตัวอักษรหลัก */
+  --muted: #6b7280;
+
+  --border: #d1d5db;
+  --accent: #2563eb;          /* system blue (ปลอดภัย) */
+  --accent-dark: #1e40af;
+  --accent-soft: #e0e7ff;
+}
+
+/* ===== Global Reset (แก้ล้น/ตัดจอ) ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== Page ===== */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* ===== App layout ===== */
+#app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* ===== Typography ===== */
+h1 {
+  font-size: 2rem;
+  margin: 0 0 16px 0;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 0 0 12px 0;
+}
+
+p {
+  margin: 0 0 10px 0;
+  color: var(--muted);
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ======================================================
+   🧭 NAVBAR (เรียบ สุภาพ)
+   ====================================================== */
+
+.nv-navbar {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin: 16px auto 24px;
+  width: fit-content;
+}
+
+.nv-navbar .nav {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.nv-navbar .nav li a {
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.nv-navbar .nav li a.router-link-active {
+  background-color: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+/* ======================================================
+   🔘 BUTTON – MODERN + MICRO INTERACTION
+   ====================================================== */
+
+button {
+  appearance: none;
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 9px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+
+  background-color: #ffffff;
+  color: var(--text);
+
+  cursor: pointer;
+  overflow: hidden;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.08s ease;
+}
+
+/* ลูกเล่นแสงเบา ๆ */
+button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0, 0, 0, 0.05),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+button:hover::after {
+  opacity: 1;
+}
+
+button:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+button:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 2px rgba(37, 99, 235, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button + button {
+  margin-left: 8px;
+}
+
+/* ===== Action Buttons (ดูข้อมูล / แก้ไข / ลบ) ===== */
+button.view {
+  color: var(--accent);
+}
+
+button.edit {
+  color: #16a34a;
+}
+
+button.delete {
+  color: #dc2626;
+}
+
+button.delete:hover {
+  border-color: #dc2626;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}
+
+/* ======================================================
+   🧱 CARD
+   ====================================================== */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* ======================================================
+   📝 FORMS
+   ====================================================== */
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: #ffffff;
+  color: var(--text);
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* ======================================================
+   📱 RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 600px) {
+  #app {
+    padding: 16px 12px 32px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    margin-bottom: 6px;
+  }
+}
