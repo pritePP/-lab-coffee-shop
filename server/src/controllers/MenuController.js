@@ -21,7 +21,7 @@ module.exports = {
       res.status(500).json({ message: 'เกิดข้อผิดพลาด', error: err.message })
     }
   },
-
+  // create
   async create(req, res) {
     try {
       const menu = await Menu.create(req.body)
@@ -30,7 +30,7 @@ module.exports = {
       res.status(500).json({ message: 'เกิดข้อผิดพลาด', error: err.message })
     }
   },
-
+    // create UPDATE
   async update(req, res) {
     try {
       const id = parseInt(req.params.id, 10)
@@ -44,7 +44,7 @@ module.exports = {
       res.status(500).json({ message: 'เกิดข้อผิดพลาด', error: err.message })
     }
   },
-
+    // create delete
   async delete(req, res) {
     try {
       const id = parseInt(req.params.id, 10)
