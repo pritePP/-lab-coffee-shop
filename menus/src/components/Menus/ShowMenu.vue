@@ -9,10 +9,6 @@
       <p>Origin: {{ menu.origin }}</p>
       <p>Price: {{ menu.price }}</p>
       <p>Description: {{ menu.description }}</p>
-      <p>
-      <button v-on:click="navigateTo('/blog/edit/'+ blog.id)">แก้ไข blog</button>
-      <button v-on:click="navigateTo('/blogs')">กลับ</button>
-    </p>
     </div>
 
     <div v-else>
@@ -37,11 +33,6 @@ export default {
       console.log(err)
       this.menu = null
     }
- },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    },
   }
 }
 </script>

@@ -2,7 +2,7 @@
     <div>
         <div class="nv-navbar">
             <ul class="nav">
-                <li><router-link :to="{ name: 'orders' }">Orders</router-link></li>
+                <li><router-link :to="{ name: 'coffees' }">Coffees</router-link></li>
                 <li><router-link :to="{ name: 'menus' }">Menus</router-link></li>
                 <li><router-link :to="{ name: 'login' }">Login</router-link></li>
             </ul>
@@ -20,7 +20,7 @@ export default {
 <style scoped>
 /* ===== Coffee Pill Navbar ===== */
 .nv-navbar {
-  background: linear-gradient(90deg, #a04801, #aa730e);
+  background: linear-gradient(90deg, #4e342e, #6f4e37);
   width: fit-content;            /* ไม่เต็มจอ */
   margin: 16px auto;             /* จัดกลาง */
   padding: 8px 12px;
@@ -66,8 +66,8 @@ export default {
 
 /* Active route (ปุ่มที่เลือก) */
 .nv-navbar .nav li a.router-link-active {
-  background-color: #fea847;     /* latte */
-  color: #000000;
+  background-color: #d7b899;     /* latte */
+  color: #3e2723;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 

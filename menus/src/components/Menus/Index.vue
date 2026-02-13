@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1>Get All Menus</h1>
-    <p><button v-on:click="logout">Logout</button></p>
-    <h4>จำนวน blog {{ menus.length }}</h4>
+
+    <p>
       <button v-if="isAdminLoggedIn" @click="navigateTo('/menu/create')">สร้างเมนูใหม่</button>
       <button v-else @click="navigateTo('/login')">Login (Admin)</button>
       <button v-if="isAdminLoggedIn" @click="onLogout">Logout</button>
-    
+    </p>
 
     <div v-if="menus.length">
       <h4>จำนวนเมนู {{ menus.length }}</h4>
@@ -21,6 +21,7 @@
 
         <p>
           <button @click="navigateTo('/menu/' + menu.id)">ดูข้อมูลเมนู</button>
+
           <button v-if="isAdminLoggedIn" @click="navigateTo('/menu/edit/' + menu.id)">แก้ไขข้อมูล</button>
           <button v-if="isAdminLoggedIn" @click="deleteMenu(menu.id)">ลบข้อมูล</button>
         </p>
@@ -41,18 +42,6 @@ export default {
   data () {
     return { menus: [] }
   },
-  async created () {
-    // เรียกใช้ Service เพื่อดึงข้อมูลเมื่อ Component ถูกโหลด [6]
-    this.blogs = (await BlogsService.index()).data
-  },
-  methods: {
-    logout () {
-      this.$store.dispatch('setToken', null)
-      this.$store.dispatch('setBlog', null)
-      this.$router.push({
-        name: 'login'
-      })
-    },
   computed: {
     isAdminLoggedIn () {
       const authenStore = useAuthenStore()
@@ -86,8 +75,6 @@ export default {
   async created () {
     await this.refreshData()
   }
-  
-}
 }
 </script>
 

@@ -7,10 +7,7 @@
       <p>Origin: <input type="text" v-model="menu.origin"></p>
       <p>Price: <input type="number" v-model.number="menu.price"></p>
       <p>Description: <input type="text" v-model="menu.description"></p>
-      <p>
-        <button type="submit">edit menu</button>
-        <button v-on:click="navigateTo('/blogs')">กลับ</button>
-      </p>
+      <p><button type="submit">edit menu</button></p>
     </form>
   </div>
 </template>

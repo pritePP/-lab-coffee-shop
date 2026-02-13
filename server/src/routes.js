@@ -1,26 +1,34 @@
-const MenuController = require('./controllers/MenuController')
-const isAuthenController = require('./controllers/isAuthenController')
-const UserAuthenController = require('./controllers/UserAuthenController')
+const MenuController = require("./controllers/MenuController")
+const CoffeeController = require("./controllers/CoffeeController")
+const isAuthenController = require("./controllers/isAuthenController")
+const UserAuthenController = require("./controllers/UserAuthenController")
 
 module.exports = (app) => {
   // ===== Auth =====
-  app.post('/login', UserAuthenController.login)
-  // optional: สร้าง admin (ถ้าอยากใช้)
-  app.post('/register', UserAuthenController.register)
+  app.post("/login", UserAuthenController.login)
+  app.post("/register", UserAuthenController.register)
 
-  // ===== Public (ดูเมนูได้สาธารณะ) =====
-  app.get('/menus', MenuController.index)
-  app.get('/menu/:id', MenuController.show)
+  // ===== Menu =====
+  // all
+  app.get("/menus", MenuController.index)
+  // one
+  app.get("/menu/:id", MenuController.show)
+  // create
+  app.post("/menu", isAuthenController, MenuController.create)
+  // update
+  app.put("/menu/:id", isAuthenController, MenuController.update)
+  // delete
+  app.delete("/menu/:id", isAuthenController, MenuController.delete)
 
-  // ===== Protected (ต้องมี Token) =====
-  app.post('/menu', isAuthenController, MenuController.create)
-  app.put('/menu/:id', isAuthenController, MenuController.update)
-  app.delete('/menu/:id', isAuthenController, MenuController.delete)
-
-  // Alias ตามโจทย์ (coffee)
-  app.get('/coffees', MenuController.index)
-  app.get('/coffee/:id', MenuController.show)
-  app.post('/coffee', isAuthenController, MenuController.create)
-  app.put('/coffee/:id', isAuthenController, MenuController.update)
-  app.delete('/coffee/:id', isAuthenController, MenuController.delete)
+  // ===== Coffee =====
+  // all 
+  app.get("/coffees", CoffeeController.index)
+  // one
+  app.get("/coffee/:coffeeId", CoffeeController.show)
+  // create
+  app.post("/coffee", isAuthenController, CoffeeController.create)
+  // update
+  app.put("/coffee/:coffeeId", isAuthenController, CoffeeController.update)
+  // delete
+  app.delete("/coffee/:coffeeId", isAuthenController, CoffeeController.delete)
 }
