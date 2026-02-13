@@ -3,9 +3,10 @@
     <h1>Get All Coffees</h1>
 
     <p>
-      <button v-if="isAdminLoggedIn" @click="navigateTo('/coffee/create')">เพิ่มเมนูกาแฟ</button>
+      <button v-if="isAdminLoggedIn"@click="navigateTo('/menu/create')"class="add"> สร้างเมนูใหม่</button>
+
       <button v-else @click="navigateTo('/login')">Login (Admin)</button>
-      <button v-if="isAdminLoggedIn" @click="onLogout">Logout</button>
+      <button v-if="isAdminLoggedIn"@click="onLogout" class="logout"> Logout</button>
     </p>
 
     <div v-if="coffees.length">

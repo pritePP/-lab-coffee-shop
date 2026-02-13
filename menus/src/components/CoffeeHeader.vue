@@ -20,12 +20,12 @@ export default {
 <style scoped>
 /* ===== Coffee Pill Navbar ===== */
 .nv-navbar {
-  background: linear-gradient(90deg, #4e342e, #6f4e37);
+  background: linear-gradient(90deg, #080200, #3b3836);
   width: fit-content;            /* ไม่เต็มจอ */
   margin: 16px auto;             /* จัดกลาง */
   padding: 8px 12px;
   border-radius: 999px;          /* ✅ โค้งแบบปุ่ม */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
   position: sticky;
   top: 12px;
   z-index: 1000;
@@ -66,7 +66,7 @@ export default {
 
 /* Active route (ปุ่มที่เลือก) */
 .nv-navbar .nav li a.router-link-active {
-  background-color: #d7b899;     /* latte */
+  background-color: #fbfbfb;     /* latte */
   color: #3e2723;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
