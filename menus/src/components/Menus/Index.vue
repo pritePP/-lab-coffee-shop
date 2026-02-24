@@ -3,11 +3,9 @@
     <h1>Get All Menus</h1>
 
     <p>
-      <button v-if="isAdminLoggedIn"@click="navigateTo('/menu/create')"class="add"> สร้างเมนูใหม่</button>
-
+      <button v-if="isAdminLoggedIn" @click="navigateTo('/menu/create')">สร้างเมนูใหม่</button>
       <button v-else @click="navigateTo('/login')">Login (Admin)</button>
-      <button v-if="isAdminLoggedIn"@click="onLogout" class="logout"> Logout</button>
-
+      <button v-if="isAdminLoggedIn" @click="onLogout">Logout</button>
     </p>
 
     <div v-if="menus.length">
