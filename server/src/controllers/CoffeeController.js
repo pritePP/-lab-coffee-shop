@@ -27,46 +27,33 @@ module.exports = {
     }
   },
 
-  // ================= CREATE =================
-  async create(req, res) {
-    try {
+ // ================= CREATE =================
+async create(req, res) {
+  try {
 
-      let filename = null
+    let filename = null
 
-      if (req.file) {
-
-        // ลบรูปเก่า
-        const fs = require('fs')
-        const path = require('path')
-
-        if (coffee.image) {
-          const oldPath = path.join(__dirname, '../../public/uploads/', coffee.image)
-          if (fs.existsSync(oldPath)) {
-            fs.unlinkSync(oldPath)
-          }
-        }
-
-        coffee.image = req.file.filename
-      }
-
-      const coffee = await Coffee.create({
-        name: req.body.name,
-        price: req.body.price,
-        type: req.body.type,
-        status: req.body.status,
-        description: req.body.description,
-        content: req.body.content,
-        image: filename
-      })
-
-      res.json(coffee)
-
-    } catch (err) {
-      console.error(err)
-      res.status(500).json({ error: err.message })
+    if (req.file) {
+      filename = req.file.filename
     }
-  },
 
+    const coffee = await Coffee.create({
+      name: req.body.name,
+      price: req.body.price,
+      type: req.body.type,
+      status: req.body.status,
+      description: req.body.description,
+      content: req.body.content,
+      image: filename
+    })
+
+    res.json(coffee)
+
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: err.message })
+  }
+},
   // ================= UPDATE =================
   async update(req, res) {
     try {
